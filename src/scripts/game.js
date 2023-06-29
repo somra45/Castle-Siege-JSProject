@@ -25,31 +25,26 @@ export default class CastleSiege {
     };
 
     drawClouds(ctx) {
-        let x = 150
-        let y = 70
-        let radius = 20
-        let startAngle = 0
-        let endAngle = Math.PI
-        let clockwise = false
-        ctx.beginPath()
-        ctx.arc(x- 20, y - 30, radius, startAngle -0.4, 0.8 * endAngle, true)
-        ctx.stroke()
-        ctx.closePath()
-
-        ctx.beginPath()
-        ctx.arc(x, y, radius, startAngle + 1, endAngle, clockwise)
-        ctx.stroke()
-        ctx.closePath()
-
-        ctx.beginPath()
-        ctx.arc(x + 20, y - 20, radius, 1 + startAngle, endAngle + 0.5, true)
-        ctx.stroke()
-        ctx.closePath()
-
-        ctx.beginPath()
-        ctx.arc(x + 20, y, radius, startAngle - 0.5, 0.8 * endAngle, clockwise)
-        ctx.stroke()
-        ctx.closePath()
-
+        // let x = 150
+        // let y = 70
+        // let radius = 20
+        // let startAngle = 0
+        // let endAngle = Math.PI
+        // let clockwise = false
+        // ctx.beginPath()
+        // ctx.arc(x- 10, y - 20, radius, startAngle - 0.6, 0.6 * endAngle, true)
+        // ctx.stroke()
+        // ctx.arc(x, y, radius, startAngle + 1, endAngle, clockwise)
+        // ctx.stroke()
+        // ctx.arc(x + 20, y - 20, radius, 1 + startAngle, endAngle + 0.5, true)
+        // ctx.stroke()
+        // ctx.arc(x + 20, y, radius+5, startAngle - 0.5, 0.8 * endAngle, clockwise)
+        // ctx.stroke()
+        // ctx.closePath()
+        // ctx.fillStyle = "white"
+        // ctx.fill()
+        const cloudImage = document.createElement("img")
+        cloudImage.src = "../src/assets/images/clouds.jpg"
+        ctx.drawImage(cloudImage, 0, 0, 0, 0, 100, 100 ,50, 50)
     }
 };
