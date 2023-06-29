@@ -62,7 +62,7 @@ body {
 .health-bar-div {
   position: absolute;
   top: 98%;
-  left: 51%;
+  left: 50.5%;
   transform: translate(-50%, -50%);
   width: 640px;
   max-width: 80%;
@@ -107,7 +107,7 @@ body {
 .power-bar-div {
   position: absolute;
   top: 55.3%;
-  left: 9.1%;
+  left: 26.5%;
   transform: translate(-50%, -50%);
   width: 50px;
   max-width: 80%;
@@ -137,4 +137,14 @@ body {
   display: flex;
   flex-direction: row;
   justify-content: center;
+}
+
+.power-indicator {
+  color: white;
+  font-family: "Dela Gothic One";
+  text-shadow: 1px 1px 10px black, 0 0 25px black, 0 0 5px black;
+  margin: 0px;
+  padding: 0px;
+  padding-top: 3px;
+  box-sizing: border-box;
 }
