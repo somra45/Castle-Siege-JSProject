@@ -1,0 +1,35 @@
+.top-buttons-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+    width: 640px;
+    height: 30px;
+    padding-bottom: 10px;
+}
+
+.top-button {
+    background-color: darkgreen;
+    border-radius: 7px;
+    height: 30px;
+    width: fit-content;
+    font-family: 'Dela Gothic One';
+    color: white;
+    transition-duration: 0.7s;
+    box-shadow: inset 0px 0px 10px black, 0 0 12px rgb(45, 200, 45);
+}
+
+
+.siege-clock {
+    font-family: 'Dela Gothic One';
+    color: white;
+    text-shadow: 1px 1px 10px black, 0 0 25px rgb(33, 162, 80), 0 0 5px darkgreen;
+    margin: 0;
+    padding: 0;
+    padding-bottom: 4px;
+}
+
+.top-button:hover {
+    background-color: rgb(33, 162, 80);
+    cursor:pointer;
+}

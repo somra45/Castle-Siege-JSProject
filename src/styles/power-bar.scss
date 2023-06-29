@@ -1,0 +1,34 @@
+.power-bar-div {
+    position: absolute;
+    top: 55.3%;
+    left: 9.1%;
+    transform: translate(-50%, -50%);
+    width : 50px;
+    max-width: 80%;
+    height: 480px;
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+.power-bar {
+    width: 50px;
+    height: 100%;
+    background-color: red;
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    box-shadow: inset 0px 0px 10px black, 0 0 12px rgb(45, 200, 45);
+}
+
+.power {
+    width: 50px;
+    height: 40%;
+    background-color: white;
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}

@@ -1,8 +1,15 @@
+import Wall from "./wall.js"
+
 export default class CastleSiege {
     constructor(canvas) {
         this.ctx = canvas.getContext("2d");
         this.dimensions = { width: canvas.width, height: canvas.height};
         this.drawBackground(this.ctx);
+        let wallobj = { width: canvas.width/10, height: canvas.height/10,
+            health: 100
+        }
+        this.wall = new Wall(wallobj, this.ctx)
+        this.wall.wallobj = wallobj;
     }
 
     drawBackground(ctx) {
