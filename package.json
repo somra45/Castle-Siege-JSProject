@@ -3,13 +3,13 @@
   "version": "1.0.0",
   "description": "------------------------------------------------------------------------------\r Castle Siege - JavaScript Game Proposal\r ------------------------------------------------------------------------------\r Background:\r ------------------------------------------------------------------------------",
   "main": "index.js",
+  "browserslist": [
+    "defaults"
+  ],
   "scripts": {
     "watch": "webpack --watch --mode=development",
     "build": "webpack --mode=production"
   },
-    "browserslist": [
-      "defaults"
-    ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/somra45/Castle-Siege-JSProject.git"
