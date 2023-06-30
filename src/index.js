@@ -2,6 +2,7 @@ import CastleSiege from "./scripts/game.js";
 import {addClock, Clock} from "./scripts/clock.js";
 import {currentHealth} from "./scripts/health-bar.js";
 import {PowerBar, oscillate} from "./scripts/power-bar.js";
+import GameView from "./scripts/game-view.js";
 
 document.addEventListener("DOMContentLoaded", function() {
     const canvas = document.getElementById("siege-game");
@@ -16,6 +17,10 @@ document.addEventListener("DOMContentLoaded", function() {
     
     setInterval(currentHealth(castle1.wall.wallobj), 100);
 
+    document.addEventListener("click", function() { 
+        const shot = new GameView(castle1, castle1.ctx, clock);
+        shot.start();
+    });
 });
 
 

@@ -5,6 +5,8 @@ export default class Catapult {
         this.dHeight = 76
         this.dx = 50
         this.dy = 360
+        this.shotx = 50
+        this.shoty =  360
         this.type = 'ballista'
         this.velocity = 3
     }
@@ -23,22 +25,16 @@ export default class Catapult {
         ctx.drawImage(ballistaChassis, this.dx + 4, this.dy + 23, this.dWidth/1.08, this.dHeight/1.8);
         ctx.drawImage(ballistaFrontWheel, this.dx + 50, this.dy + 54, this.dWidth/4, this.dHeight/3.5);
         ctx.drawImage(ballistaBackWheel, this.dx + 21, this.dy + 58, this.dWidth/5.2, this.dHeight/4.5);
+        ctx.save();
         ctx.rotate((337 * Math.PI/180))
         // ctx.translate(50, 50)
         ctx.drawImage(ballistaBow, this.dx - 163, this.dy + 20, this.dWidth, this.dHeight/2.9)
-        ctx.drawImage(ballistaSpear, this.dx - 140, this.dy + 22, this.dWidth/1.5, this.dHeight/7)
+        // ctx.drawImage(ballistaSpear, this.dx - 140, this.dy + 22, this.dWidth/1.5, this.dHeight/7)
         ctx.restore()
     }
 
-    move() {
+    move(velocity) {
         this.dx += velocity
     };
     
-    launch(ctx, degrees, dirx, diry) {
-        const ballistaSpear = document.getElementById('ballista-spear');
-        this.dx = dx + dirx
-        this.dy = dy + diry
-        ctx.rotate((337 + degrees * Math.PI/180));
-        ctx.drawImage(ballistaSpear, this.dx - 140, this.dy + 22, this.dWidth/1.5, this.dHeight/7);
-    };
 };
