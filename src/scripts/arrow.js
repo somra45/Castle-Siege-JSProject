@@ -20,6 +20,7 @@ export default class Arrow {
         const ballistaSpear = document.getElementById('ballista-spear');
         this.dx += dirx;
         this.dy += diry;
+  
         ctx.save()
         ctx.rotate(((337 + degrees) * Math.PI/180));
         ctx.drawImage(ballistaSpear, this.dx - 140, this.dy + 22, this.dWidth, this.dHeight);
