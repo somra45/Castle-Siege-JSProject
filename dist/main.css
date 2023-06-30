@@ -61,7 +61,7 @@ body {
 
 .health-bar-div {
   position: absolute;
-  top: 98%;
+  top: 97%;
   left: 50.5%;
   transform: translate(-50%, -50%);
   width: 640px;
