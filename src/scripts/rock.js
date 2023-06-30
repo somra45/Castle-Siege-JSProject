@@ -8,7 +8,7 @@ export default class Rock {
     };
 
     reset(ctx) {
-
+        
     };
 
     mousepos(ctx) {

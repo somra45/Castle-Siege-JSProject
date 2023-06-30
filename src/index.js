@@ -15,8 +15,7 @@ document.addEventListener("DOMContentLoaded", function() {
     setInterval(() => addClock(clock.timeString, clockDiv) , 1000);
     
     setInterval(currentHealth(castle1.wall.wallobj), 100);
-    
-    setInterval(oscillate(castle1.player.power), 20);
+
 });
 
 

@@ -104,6 +104,10 @@ body {
   box-sizing: border-box;
 }
 
+.clouds {
+  display: none;
+}
+
 .power-bar-div {
   position: absolute;
   top: 55.3%;

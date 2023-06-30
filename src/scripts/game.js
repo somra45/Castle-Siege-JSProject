@@ -17,34 +17,36 @@ export default class CastleSiege {
     drawBackground(ctx) {
         let width = this.dimensions.width
         let height = this.dimensions.height
-        ctx.fillStyle = 'skyblue'
+        ctx.fillStyle = 'rgb(165, 223, 249)'
         ctx.fillRect(0, 0, this.dimensions.width, this.dimensions.height)
         ctx.fillStyle = '#28b259'
         ctx.fillRect(0, 400, this.dimensions.width, 200)
         this.drawClouds(ctx)
     };
 
-    drawClouds(ctx) {
-        // let x = 150
-        // let y = 70
-        // let radius = 20
-        // let startAngle = 0
-        // let endAngle = Math.PI
-        // let clockwise = false
-        // ctx.beginPath()
-        // ctx.arc(x- 10, y - 20, radius, startAngle - 0.6, 0.6 * endAngle, true)
-        // ctx.stroke()
-        // ctx.arc(x, y, radius, startAngle + 1, endAngle, clockwise)
-        // ctx.stroke()
-        // ctx.arc(x + 20, y - 20, radius, 1 + startAngle, endAngle + 0.5, true)
-        // ctx.stroke()
-        // ctx.arc(x + 20, y, radius+5, startAngle - 0.5, 0.8 * endAngle, clockwise)
-        // ctx.stroke()
-        // ctx.closePath()
-        // ctx.fillStyle = "white"
-        // ctx.fill()
-        const cloudImage = document.createElement("img")
-        cloudImage.src = "../src/assets/images/clouds.jpg"
-        ctx.drawImage(cloudImage, 0, 0, 0, 0, 100, 100 ,50, 50)
-    }
+    drawClouds(ctx, options = {}) {
+        const cloudImage = document.getElementById("clouds")
+        // ctx.drawImage(cloudImage, sx, sy, sWidth, sHeight, 0, 0, 100, 100)
+        let sx = 0
+        let sy = 0
+        let sWidth = 480
+        let sHeight = 450
+        let dx = 0
+        let dy = 0
+        let dWidth = 100
+        let dHeight = 100
+        // need to get all of this into an animation function, and it could be moving clouds
+        ctx.drawImage(cloudImage, sx, sy, sWidth, sHeight, dx, dy, dWidth, dHeight)
+        ctx.drawImage(cloudImage, 500, 500, sWidth + 500, sHeight + 500,
+        170, 100, 300, 300)
+        ctx.drawImage(cloudImage, sx, sy + 180, sWidth, sHeight, 280, 230, dWidth, dHeight -30)
+        ctx.drawImage(cloudImage, 1000, 500, sWidth + 600, sHeight + 500,
+            0, 110, 200, 200)
+        ctx.drawImage(cloudImage, 500, 650, sWidth + 800, sHeight,
+            370, 10, 300, 100)
+        ctx.drawImage(cloudImage, 350, 650, sWidth + 590, sHeight,
+            225, 78, 300, 80)
+        // ctx.drawImage(cloudImage, 500, 650, sWidth + 800, sHeight,
+        //     380, 110, 300, 100)
+    };  
 };
