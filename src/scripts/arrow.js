@@ -26,4 +26,10 @@ export default class Arrow {
         ctx.drawImage(ballistaSpear, this.dx - 140, this.dy + 22, this.dWidth, this.dHeight);
         ctx.restore();
     };
+
+    reset(ctx) {
+        this.dx = 50;
+        this.dy = 360;
+        this.arrow.draw(ctx);
+    }
 };

@@ -1,30 +1,19 @@
 export default class Wall {
-    constructor(wallObject, ctx) {
+    constructor(health, ctx) {
         this.ctx = ctx;
-        this.dWidth = wallObject.width;
-        this.dHeight = wallObject.height;
-        this.health = wallObject.health;
-        this.position = [wallObject.dx, wallObject.dy];
-        this.wallObject = wallObject;
+        this.dWidth = 200;
+        this.dHeight = 200;
+        this.health = health;
+        this.position = [480, 274];
     }
 
-    drawCastle(ctx, wallObject) {
+    drawCastle(ctx, health) {
         let castleImage = document.getElementById('castle-image');
-        if (wallObject.health < 75 && wallObject.health >= 33) {
+        if (health < 75 && health >= 33) {
             castleImage = document.getElementById('castle-image-damaged');
-        } else {
+        } else if (health < 33) {
             castleImage = document.getElementById('castle-image-destroyed');
-        }
-        let dx = 480;
-        let dy = 274;
-        let dWidth = 200;
-        let dHeight = 200;
-        if (wallObject !== {}) {
-            dx = wallObject.dx || 480;
-            dy = wallObject.dy || 274;
-            dWidth = wallObject.dWidth || 200;
-            dHeight = wallObject.dHeight || 200;
-        }
-        ctx.drawImage(castleImage, dx, dy, dWidth, dHeight);
+        } 
+        ctx.drawImage(castleImage, this.position[0], this.position[1], this.dWidth, this.dHeight);
     };
 };

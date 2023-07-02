@@ -14,9 +14,7 @@ document.addEventListener("DOMContentLoaded", function() {
     addClock(clock.timeString, clockDiv) ;
 
     setInterval(() => addClock(clock.timeString, clockDiv) , 1000);
-    
-    setInterval(currentHealth(castle1.wall.wallobj), 100);
-
+    currentHealth(castle1.health);
     document.addEventListener("click", function() { 
         const shot = new GameView(castle1, castle1.ctx, clock);
         shot.start();
