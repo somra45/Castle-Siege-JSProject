@@ -108,47 +108,8 @@ body {
   display: none;
 }
 
-.power-bar-div {
-  position: absolute;
-  top: 55.3%;
-  left: 26.5%;
-  transform: translate(-50%, -50%);
-  width: 50px;
-  max-width: 80%;
-  height: 480px;
-  margin: 0px;
-  padding: 0px;
-  box-sizing: border-box;
-}
-
-.power-bar {
-  width: 50px;
-  height: 100%;
-  background-color: red;
-  margin: 0px;
-  padding: 0px;
-  box-sizing: border-box;
-  box-shadow: inset 0px 0px 10px black, 0 0 12px rgb(45, 200, 45);
-}
-
-.power {
-  width: 50px;
-  height: 40%;
-  background-color: white;
-  margin: 0px;
-  padding: 0px;
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-}
-
-.power-indicator {
-  color: white;
-  font-family: "Dela Gothic One";
-  text-shadow: 1px 1px 10px black, 0 0 25px black, 0 0 5px black;
-  margin: 0px;
-  padding: 0px;
-  padding-top: 3px;
-  box-sizing: border-box;
+.power-canvas {
+  position: relative;
+  bottom: 482px;
+  left: 383px;
 }

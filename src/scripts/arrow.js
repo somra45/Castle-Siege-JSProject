@@ -30,6 +30,6 @@ export default class Arrow {
     reset(ctx) {
         this.dx = 50;
         this.dy = 360;
-        this.arrow.draw(ctx);
+        this.draw(ctx);
     }
 };

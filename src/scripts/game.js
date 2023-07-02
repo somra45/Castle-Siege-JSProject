@@ -3,13 +3,12 @@ import Player from "./player.js";
 import Catapult from "./catapult.js";
 import Arrow from "./arrow.js";
 import {currentHealth} from "./health-bar.js";
+import PowerBar from "./power-bar.js";
 
 export default class CastleSiege {
     constructor(canvas) {
         this.ctx = canvas.getContext("2d");
         this.dimensions = { width: canvas.width, height: canvas.height};
-        // let wallobj = { dx: 480, dy: 274, dWidth: 200, dHeight: 200,
-        //     health: 100};
         this.health = 100;
         this.wall = new Wall(this.health, this.ctx);
         this.player = new Player(this.ctx);
@@ -19,7 +18,7 @@ export default class CastleSiege {
         this.drawClouds(this.ctx);
         this.catapult.drawBallistaPieces(this.ctx);
         this.arrow = new Arrow(this.ctx);
-        this.power = 50;
+        this.power = 75;
         this.angle = 23;
         this.dirx = 3 * (this.power/100);
         this.diry = -1 * (this.power/100);
@@ -28,6 +27,7 @@ export default class CastleSiege {
         this.rotateArc = 0.17 * (this.angle/50);
         this.clouddx = 1
         this.stop = false;
+        this.powerbar = new PowerBar(this.power)
     }
 
     drawBackground(ctx) {
@@ -133,6 +133,5 @@ export default class CastleSiege {
         this.gravity = 0.0038 * (this.power/100);
         this.rotateArc = 0.17 * (this.angle/50);
         this.clouddx = 1
-        this.stop = false;
     }
 };

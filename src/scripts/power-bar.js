@@ -1,26 +1,19 @@
-// class PowerBar {
-//     constructor(power) {
-//         this.power = power
-//         this.currentPower = this.currentPower.bind(this)
-//         this.currentPower(this.power)
-//     }
+export default class PowerBar {
+    constructor(power) {
+        const powerBar = document.getElementById("power-bar")
+        this.power = power
+        this.ctx = powerBar.getContext("2d")
+        this.currentPower = this.currentPower.bind(this)
+        this.currentPower()
+    }
 
-//     currentPower() {
-//         const powerBar = document.querySelector(".power")
-//         powerBar.style.height = `${this.power}%`
-    
-//         const newPTag = document.createElement("p")
-//         newPTag.innerText = `${100 - this.power}`
-//         newPTag.classList.add("power-indicator")
-//         if (powerBar.children.length > 0) {
-//             powerBar.removeChild(powerBar.children[0])
-//             powerBar.appendChild(newPTag)
-//         } else {
-//             powerBar.appendChild(newPTag)
-//         }
-//     };
+    currentPower() {
+        this.ctx.fillStyle = "red"
+        let height = -480 * (this.power/100) 
+        this.ctx.fillRect(0, 480, 45, height)
+    };
 
-// };
+};
 
 // const oscillate = function(player) {
 //     let acceleration = 1.15
