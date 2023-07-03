@@ -5,20 +5,28 @@ import PowerBar from "./scripts/power-bar.js";
 import GameView from "./scripts/game-view.js";
 
 document.addEventListener("DOMContentLoaded", function() {
-    const canvas = document.getElementById("siege-game");
-    let powerBar = new PowerBar()
-    const castle1 = new CastleSiege(canvas);
-
     const clockDiv = document.getElementById("clock-container");
     let clock = new Clock();
     addClock(clock.timeString, clockDiv);
 
     setInterval(() => addClock(clock.timeString, clockDiv) , 1000);
-    setInterval(() => powerBar.oscillate(), 40)
 
-    document.addEventListener("click", function(powerBar) { 
-        const shot = new GameView(castle1, castle1.ctx, clock);
-        shot.start();
+    const canvas = document.getElementById("siege-game");
+    let powerBar = new PowerBar();
+    setInterval(() => powerBar.oscillate(), 40)
+    document.addEventListener("keydown", function(event) {
+        if (event.code === 'Space') {
+            powerBar.stop = !powerBar.stop;
+            powerBar.currentPower()
+        }
+    });
+    const castle1 = new CastleSiege(canvas);
+
+    document.addEventListener("keydown", function(event) { 
+        if (event.code === 'Enter'){
+            const shot = new GameView(castle1, castle1.ctx, clock);
+            shot.start();
+        }
     });
 
     if (castle1.isGameOver()) { 

@@ -19,18 +19,17 @@ export default class CastleSiege {
         this.catapult.drawBallistaPieces(this.ctx);
         currentHealth(this.health);
         this.arrow = new Arrow(this.ctx);
-        this.power = 40
-        this.angle = 23;
+        this.power = window.myPower;
+        this.angle = 45;
         this.dirx = 0.4 * (this.power/10);
-        this.diry = -0.1 * (this.power/10);
-        this.degrees = 4 * (this.angle/100);
-        this.gravity = 0.0038 * (this.power/100) * this.angle / 90;
-        this.rotateArc = 0.17 * (this.angle/50);
+        this.diry = -0.3 * (this.angle/5);
+        this.gravity = 0.0038 * (this.power/100) * (this.angle / 90);
         this.clouddx = 1;
         this.stop = false;
         this.damage = 10
         this.hitGround = this.hitGround.bind(this);
-        this.hitOffScreen = this.hitOffScreen.bind(this)
+        this.hitOffScreen = this.hitOffScreen.bind(this);
+        this.reset = this.reset.bind(this);
     };
 
     drawBackground(ctx) {
@@ -92,28 +91,25 @@ export default class CastleSiege {
         this.drawClouds(ctx, this.clouddx);
         this.wall.drawCastle(ctx, this.health);
         this.catapult.drawBallistaPieces(ctx);
-        this.diry += this.gravity + ((this.degrees*this.degrees)/900000);
-        this.dirx -= (this.gravity + timeDelta/100)/(this.power) - 1/this.power/100;
-        this.degrees += this.rotateArc;
+        this.diry += (this.gravity/this.gravity/45) + ((this.angle)/8000);
+        this.dirx -= (this.gravity + timeDelta/100)/(this.power);
+        console.log(this.power, this.angle)
         if (!this.isCollision() && !this.hitGround() && !this.hitOffScreen()) {
             this.stop = false;
             this.arrow.launch(ctx, this.degrees, this.dirx, this.diry);
         } else if (this.isCollision()){
-            debugger;
-            this.health -= this.damage
-            this.playerMove(ctx)
+            this.health -= this.damage;
+            this.playerMove(ctx);
         } else if (this.hitGround() || this.hitOffScreen()) {
-            debugger;
-            this.playerMove(ctx)
+            this.playerMove(ctx);
         }
-
     };
 
     playerMove(ctx) {
         this.stop = true;
         this.arrow.launch(ctx, this.degrees, this.dirx, this.diry);
         currentHealth(this.health);
-        this.reset(ctx)
+        this.reset(ctx);
         this.arrow.reset(ctx);
     };
 
@@ -122,27 +118,21 @@ export default class CastleSiege {
         //dx = 545 => 665 
         //dy = 330 => 450
         let wallHitbox = [this.wall.position[0], this.wall.position[1]];
-        if ((this.arrow.dx >= wallHitbox[0] + 140
-            || this.arrow.dx + 22 >= wallHitbox[0] + 140)
-            && (this.arrow.dy >= wallHitbox[1] - 225 || 
-            this.arrow.dy + 10 >= wallHitbox[1] - 225) 
-            && (this.arrow.dx  <= wallHitbox[0]  + 250 ||
-                this.arrow.dx + 22 <= wallHitbox[0]  + 250)
-            && (this.arrow.dy <= wallHitbox[1] -140 || 
-                this.arrow.dy + 10 <= wallHitbox[1] - 140))
-            {
-            return true;
+        if (this.arrow.dx + 60 > wallHitbox[0] + 15 && this.arrow.dy > wallHitbox[1] + 40&& 
+            this.arrow.dx + 60 < wallHitbox[0] + 60 && this.arrow.dy < wallHitbox[1] + 60) {
+            return true; 
         } else return false;
+
     };
 
     hitGround() {
-        if (this.arrow.dy > 360) {
+        if (this.arrow.dy > 435) {
             return true;
         } else return false;
     };
 
     hitOffScreen() {
-        if (this.arrow.dx > 780 || this.arrow.dy > 360 || this.arrow.dy < 0 ) {
+        if (this.arrow.dx > 640 || this.arrow.dx < 0 || this.arrow.dy < 0) {
             return true;
         } else return false;
     }
@@ -152,13 +142,12 @@ export default class CastleSiege {
         else return false;
     }
     
-    reset(ctx) {
-        this.angle = 23;
+    reset() {
+        this.power = window.myPower;
+        this.angle = 46;
         this.dirx = 0.4 * (this.power/10);
-        this.diry = -0.1 * (this.power/10);
-        this.degrees = 4 * (this.angle/100);
-        this.gravity = 0.0038 * (this.power/100) * this.angle / 90;
-        this.rotateArc = 0.17 * (this.angle/50);
+        this.diry = -0.3 * (this.angle/5);
+        this.gravity = 0.0038 * (this.power/100) * (this.angle / 90);
         this.clouddx = 1
     }
 };

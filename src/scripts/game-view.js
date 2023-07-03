@@ -1,5 +1,3 @@
-import Clock from "./clock.js";
-
 export default class GameView {
     constructor(game, ctx, clock) {
         this.game = game;
@@ -9,6 +7,7 @@ export default class GameView {
 
     start() {
         this.lastTime = this.clock.minutes + this.clock.seconds/60
+        this.game.reset();
         requestAnimationFrame(this.animate.bind(this));
     }
 
