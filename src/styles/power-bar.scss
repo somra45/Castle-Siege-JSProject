@@ -1,6 +1,11 @@
 .power-canvas {
-    position: relative;
+    position: absolute;
     bottom: 482px;
-    left: 383px;
-
+    left: 25.4%;
+    transform: translate(0%, 83.7%);
+    width : 45px;
+    height: 480px;
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
 }

@@ -17,18 +17,19 @@ export default class CastleSiege {
         this.drawBackground(this.ctx);
         this.drawClouds(this.ctx);
         this.catapult.drawBallistaPieces(this.ctx);
+        currentHealth(this.health);
         this.arrow = new Arrow(this.ctx);
-        this.power = 75;
+        this.power = 40;
         this.angle = 23;
-        this.dirx = 3 * (this.power/100);
-        this.diry = -1 * (this.power/100);
+        this.dirx = 0.4 * (this.power/10);
+        this.diry = -0.1 * (this.power/10);
         this.degrees = 4 * (this.angle/100);
-        this.gravity = 0.0038 * (this.power/100);
+        this.gravity = 0.0038 * (this.power/100) * this.angle / 90;
         this.rotateArc = 0.17 * (this.angle/50);
-        this.clouddx = 1
+        this.clouddx = 1;
         this.stop = false;
-        this.powerbar = new PowerBar(this.power)
-    }
+        this.damage = 10
+    };
 
     drawBackground(ctx) {
         let width = this.dimensions.width;
@@ -62,7 +63,7 @@ export default class CastleSiege {
         truex = dx + 170;
         ctx.drawImage(cloudImage, sx + 500, sy + 450, sWidth + 500, sHeight + 500,
         dx + 170, dy + 90, dWidth + 200, dHeight + 200);
-        truex += dx + 280;
+        truex = dx + 280;
         ctx.drawImage(cloudImage, sx, sy + 180, sWidth, sHeight, dx + 280, dy + 230, 
             dWidth, dHeight -30);
         truex = dx;
@@ -89,12 +90,16 @@ export default class CastleSiege {
         this.drawClouds(ctx, this.clouddx);
         this.wall.drawCastle(ctx, this.health);
         this.catapult.drawBallistaPieces(ctx);
-        this.diry += this.gravity - ((this.degrees*9)/90000);
+        this.diry += this.gravity + ((this.degrees*this.degrees)/900000);
+        this.dirx -= (this.gravity + timeDelta/100)/(this.power) - 1/this.power/100;
         this.degrees += this.rotateArc;
         if (!this.isCollision()) {
             this.stop = false;
             this.arrow.launch(ctx, this.degrees, this.dirx, this.diry);
-        } else {
+        } else if (this.isCollision()){
+            this.health -= this.damage
+            this.playerMove(ctx)
+        } else if (this.hitGround() || this.hitOffScreen()) {
             this.playerMove(ctx)
         }
 
@@ -102,13 +107,25 @@ export default class CastleSiege {
 
     isCollision() {
         let wallHitbox = [this.wall.position[0], this.wall.position[1]];
-        if ((this.arrow.dx >= wallHitbox[0] + 240
-            || this.arrow.dx + 60 >= wallHitbox[0] + 240)
-            && (this.arrow.dy >= wallHitbox[1] - 70 || 
-            this.arrow.dy + 10 >= wallHitbox[1] - 70)) {
+        if ((this.arrow.dx - 140 >= wallHitbox[0]  + 45
+            || this.arrow.dx - 118 >= wallHitbox[0]  + 45)
+            && (this.arrow.dy + 22 >= wallHitbox[1] - 80 || 
+            this.arrow.dy + 32 >= wallHitbox[1] - 80)) {
                 return true;
         } else return false;
     };
+
+    hitGround() {
+        if (this.arrow.dy > 300) {
+            return true;
+        } else return false;
+    };
+
+    hitOffScreen() {
+        if (this.arrow.dx > 0 || this.arrow.dy > 200) {
+            return true;
+        } else return false;
+    }
 
     isGameOver() {
         if (this.health <= 0) return true;
@@ -118,19 +135,17 @@ export default class CastleSiege {
     playerMove(ctx) {
         this.stop = true;
         this.arrow.launch(ctx, this.degrees, this.dirx, this.diry);
-        this.health -= 10;
         currentHealth(this.health);
         this.reset(ctx)
         this.arrow.reset(ctx);
     }
     
     reset(ctx) {
-        this.power = 50;
         this.angle = 23;
-        this.dirx = 3 * (this.power/100);
-        this.diry = -1 * (this.power/100);
+        this.dirx = 0.4 * (this.power/10);
+        this.diry = -0.1 * (this.power/10);
         this.degrees = 4 * (this.angle/100);
-        this.gravity = 0.0038 * (this.power/100);
+        this.gravity = 0.0038 * (this.power/100) * this.angle / 90;
         this.rotateArc = 0.17 * (this.angle/50);
         this.clouddx = 1
     }

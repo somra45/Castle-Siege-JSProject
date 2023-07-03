@@ -8,12 +8,13 @@ export default class GameView {
     };
 
     start() {
-        this.lastTime = this.clock.timeString;
+        this.lastTime = this.clock.minutes + this.clock.seconds/60
         requestAnimationFrame(this.animate.bind(this));
     }
 
-    animate(clock) {
-        const timeDelta = clock.timeString - this.lastTime;
+    animate() {
+        const timeDelta = this.clock.minutes + this.clock.seconds/60
+        - this.lastTime;
         this.game.frameMove(this.ctx, timeDelta);
         if (!this.game.stop) {
             requestAnimationFrame(this.animate.bind(this))

@@ -27,9 +27,7 @@ export default class Catapult {
         ctx.drawImage(ballistaBackWheel, this.dx + 21, this.dy + 58, this.dWidth/5.2, this.dHeight/4.5);
         ctx.save();
         ctx.rotate((337 * Math.PI/180))
-        // ctx.translate(50, 50)
         ctx.drawImage(ballistaBow, this.dx - 163, this.dy + 20, this.dWidth, this.dHeight/2.9)
-        // ctx.drawImage(ballistaSpear, this.dx - 140, this.dy + 22, this.dWidth/1.5, this.dHeight/7)
         ctx.restore()
     }
 

@@ -1,7 +1,7 @@
 import CastleSiege from "./scripts/game.js";
 import {addClock, Clock} from "./scripts/clock.js";
 import {currentHealth} from "./scripts/health-bar.js";
-import {PowerBar, oscillate} from "./scripts/power-bar.js";
+import PowerBar from "./scripts/power-bar.js";
 import GameView from "./scripts/game-view.js";
 
 document.addEventListener("DOMContentLoaded", function() {
@@ -11,14 +11,22 @@ document.addEventListener("DOMContentLoaded", function() {
 
     const clockDiv = document.getElementById("clock-container");
     let clock = new Clock();
-    addClock(clock.timeString, clockDiv) ;
+    addClock(clock.timeString, clockDiv);
+
+    let powerBar = new PowerBar()
 
     setInterval(() => addClock(clock.timeString, clockDiv) , 1000);
-    currentHealth(castle1.health);
+    setInterval(() => powerBar.oscillate(), 40)
+
     document.addEventListener("click", function() { 
         const shot = new GameView(castle1, castle1.ctx, clock);
         shot.start();
     });
+
+    if (castle1.isGameOver()) { 
+        return; // add game over logic, callback to render modal of game over 
+                // screen and score, etc.
+    }
 });
 
 

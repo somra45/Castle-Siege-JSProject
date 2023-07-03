@@ -1,10 +1,10 @@
 export default class Wall {
     constructor(health, ctx) {
         this.ctx = ctx;
-        this.dWidth = 200;
-        this.dHeight = 200;
+        this.dWidth = 120;
+        this.dHeight = 120;
         this.health = health;
-        this.position = [480, 274];
+        this.position = [545, 330];
     }
 
     drawCastle(ctx, health) {
