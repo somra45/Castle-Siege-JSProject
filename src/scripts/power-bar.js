@@ -11,6 +11,8 @@ export default class PowerBar {
     }
 
     currentPower() {
+        this.ctx.clearRect(0, 0, 45, 480)
+        debugger;
         this.ctx.fillStyle = "red"
         let height = -480 * (this.power/100) 
         this.ctx.fillRect(0, 480, 45, height)
@@ -30,7 +32,7 @@ export default class PowerBar {
             }
         }
         if (this.downwards) {
-            if ((Math.pow(this.deceleration, this.accelerator) * this.power) >= 0) {
+            if ((Math.pow(this.deceleration, this.accelerator) * this.power) >= 1) {
                 this.power = Math.pow(this.deceleration, this.accelerator) * this.power;
             } else {
                 this.downwards = false;

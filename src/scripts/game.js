@@ -19,7 +19,7 @@ export default class CastleSiege {
         this.catapult.drawBallistaPieces(this.ctx);
         currentHealth(this.health);
         this.arrow = new Arrow(this.ctx);
-        this.power = 50
+        this.power = 40
         this.angle = 23;
         this.dirx = 0.4 * (this.power/10);
         this.diry = -0.1 * (this.power/10);
@@ -99,21 +99,39 @@ export default class CastleSiege {
             this.stop = false;
             this.arrow.launch(ctx, this.degrees, this.dirx, this.diry);
         } else if (this.isCollision()){
+            debugger;
             this.health -= this.damage
             this.playerMove(ctx)
         } else if (this.hitGround() || this.hitOffScreen()) {
+            debugger;
             this.playerMove(ctx)
         }
 
     };
 
+    playerMove(ctx) {
+        this.stop = true;
+        this.arrow.launch(ctx, this.degrees, this.dirx, this.diry);
+        currentHealth(this.health);
+        this.reset(ctx)
+        this.arrow.reset(ctx);
+    };
+
     isCollision() {
+        //wall position is 545, 330, width and height is 120 so wall ranges from
+        //dx = 545 => 665 
+        //dy = 330 => 450
         let wallHitbox = [this.wall.position[0], this.wall.position[1]];
-        if ((this.arrow.dx - 140 >= wallHitbox[0]  + 45
-            || this.arrow.dx - 118 >= wallHitbox[0]  + 45)
-            && (this.arrow.dy + 22 >= wallHitbox[1] - 80 || 
-            this.arrow.dy + 32 >= wallHitbox[1] - 80)) {
-                return true;
+        if ((this.arrow.dx >= wallHitbox[0] + 140
+            || this.arrow.dx + 22 >= wallHitbox[0] + 140)
+            && (this.arrow.dy >= wallHitbox[1] - 225 || 
+            this.arrow.dy + 10 >= wallHitbox[1] - 225) 
+            && (this.arrow.dx  <= wallHitbox[0]  + 250 ||
+                this.arrow.dx + 22 <= wallHitbox[0]  + 250)
+            && (this.arrow.dy <= wallHitbox[1] -140 || 
+                this.arrow.dy + 10 <= wallHitbox[1] - 140))
+            {
+            return true;
         } else return false;
     };
 
@@ -132,14 +150,6 @@ export default class CastleSiege {
     isGameOver() {
         if (this.health <= 0) return true;
         else return false;
-    }
-
-    playerMove(ctx) {
-        this.stop = true;
-        this.arrow.launch(ctx, this.degrees, this.dirx, this.diry);
-        currentHealth(this.health);
-        this.reset(ctx)
-        this.arrow.reset(ctx);
     }
     
     reset(ctx) {
