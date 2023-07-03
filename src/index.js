@@ -1,8 +1,8 @@
 import CastleSiege from "./scripts/game.js";
 import {addClock, Clock} from "./scripts/clock.js";
-import {currentHealth} from "./scripts/health-bar.js";
 import PowerBar from "./scripts/power-bar.js";
 import GameView from "./scripts/game-view.js";
+import { getMousePos, drawAngle } from "./scripts/angle.js";
 
 document.addEventListener("DOMContentLoaded", function() {
     const clockDiv = document.getElementById("clock-container");
@@ -14,6 +14,13 @@ document.addEventListener("DOMContentLoaded", function() {
     const canvas = document.getElementById("siege-game");
     let powerBar = new PowerBar();
     setInterval(() => powerBar.oscillate(), 40)
+
+    document.addEventListener("mousemove", function(event) {
+        const mousePos = getMousePos(canvas, event)
+        let ctx = canvas.getContext("2d")
+        drawAngle(ctx, mousePos);
+    });
+
     document.addEventListener("keydown", function(event) {
         if (event.code === 'Space') {
             powerBar.stop = !powerBar.stop;
