@@ -19,7 +19,7 @@ export default class CastleSiege {
         this.catapult.drawBallistaPieces(this.ctx);
         currentHealth(this.health);
         this.arrow = new Arrow(this.ctx);
-        this.power = 40;
+        this.power = 50
         this.angle = 23;
         this.dirx = 0.4 * (this.power/10);
         this.diry = -0.1 * (this.power/10);
@@ -29,6 +29,8 @@ export default class CastleSiege {
         this.clouddx = 1;
         this.stop = false;
         this.damage = 10
+        this.hitGround = this.hitGround.bind(this);
+        this.hitOffScreen = this.hitOffScreen.bind(this)
     };
 
     drawBackground(ctx) {
@@ -93,7 +95,7 @@ export default class CastleSiege {
         this.diry += this.gravity + ((this.degrees*this.degrees)/900000);
         this.dirx -= (this.gravity + timeDelta/100)/(this.power) - 1/this.power/100;
         this.degrees += this.rotateArc;
-        if (!this.isCollision()) {
+        if (!this.isCollision() && !this.hitGround() && !this.hitOffScreen()) {
             this.stop = false;
             this.arrow.launch(ctx, this.degrees, this.dirx, this.diry);
         } else if (this.isCollision()){
@@ -116,13 +118,13 @@ export default class CastleSiege {
     };
 
     hitGround() {
-        if (this.arrow.dy > 300) {
+        if (this.arrow.dy > 360) {
             return true;
         } else return false;
     };
 
     hitOffScreen() {
-        if (this.arrow.dx > 0 || this.arrow.dy > 200) {
+        if (this.arrow.dx > 780 || this.arrow.dy > 360 || this.arrow.dy < 0 ) {
             return true;
         } else return false;
     }
