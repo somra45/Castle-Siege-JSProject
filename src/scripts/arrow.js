@@ -1,7 +1,7 @@
 export default class Arrow {
     constructor(ctx) {
-        this.dx = 70;
-        this.dy = 370;
+        this.dx = 65;
+        this.dy = 380;
         this.dWidth = 60.67;
         this.dHeight = 10.86;
         this.ctx = ctx;
@@ -9,27 +9,21 @@ export default class Arrow {
     };
 
     draw(ctx) {
-        const ballistaSpear = document.getElementById('ballista-spear');
-        // ctx.save()
-        // ctx.rotate((337 * Math.PI/180));
+        const ballistaSpear = document.getElementById('ballista-spear7');
         ctx.drawImage(ballistaSpear, this.dx, this.dy, this.dWidth, this.dHeight);
-        // ctx.restore();
     }
 
-    launch(ctx, degrees, dirx, diry) {
-        const ballistaSpear = document.getElementById('ballista-spear');
+    launch(ctx, dirx, diry) {
+        const ballistaSpear = document.getElementById('ballista-spear0');
         this.dx += dirx;
         this.dy += diry;
   
-        // ctx.save()
-        // ctx.rotate(((337 + degrees) * Math.PI/180));
         ctx.drawImage(ballistaSpear, this.dx, this.dy, this.dWidth, this.dHeight);
-        // ctx.restore();
     };
 
     reset(ctx) {
-        this.dx = 70;
-        this.dy = 370;
+        this.dx = 65;
+        this.dy = 380;
         this.draw(ctx);
     }
 };

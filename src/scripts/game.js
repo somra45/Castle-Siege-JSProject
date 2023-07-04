@@ -92,10 +92,9 @@ export default class CastleSiege {
         this.catapult.drawBallistaPieces(ctx);
         this.diry += (this.gravity/this.gravity/45) + ((this.angle)/8000);
         this.dirx -= (this.angle/10) * (this.gravity + timeDelta/100)/(this.power);
-        console.log(this.power, this.angle)
         if (!this.isCollision() && !this.hitGround() && !this.hitOffScreen()) {
             this.stop = false;
-            this.arrow.launch(ctx, this.degrees, this.dirx, this.diry);
+            this.arrow.launch(ctx, this.dirx, this.diry);
         } else if (this.isCollision()){
             this.health -= this.damage;
             this.playerMove(ctx);
@@ -106,7 +105,7 @@ export default class CastleSiege {
 
     playerMove(ctx) {
         this.stop = true;
-        this.arrow.launch(ctx, this.degrees, this.dirx, this.diry);
+        this.arrow.launch(ctx, this.dirx, this.diry);
         currentHealth(this.health);
         this.reset(ctx);
         this.arrow.reset(ctx);
