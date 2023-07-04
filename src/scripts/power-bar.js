@@ -45,7 +45,7 @@ export default class PowerBar {
             }
         }
         if (this.downwards) {
-            if ((Math.pow(this.deceleration, this.accelerator) * this.power) >= 1) {
+            if ((Math.pow(this.deceleration, this.accelerator) * this.power) >= 15) {
                 this.power = Math.pow(this.deceleration, this.accelerator) * this.power;
             } else {
                 this.downwards = false;

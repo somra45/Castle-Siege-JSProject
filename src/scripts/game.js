@@ -19,7 +19,7 @@ export default class CastleSiege {
         currentHealth(this.health);
         this.arrow = new Arrow(this.ctx);
         this.power = window.myPower;
-        this.angle = 45;
+        this.angle = window.myAngle;
         this.dirx = 0.4 * (this.power/10);
         this.diry = -0.3 * (this.angle/5) * (this.power/50);
         this.gravity = 0.0038 * (this.power/100) * (this.angle / 90);
@@ -131,7 +131,7 @@ export default class CastleSiege {
     };
 
     hitOffScreen() {
-        if (this.arrow.dx > 640 || this.arrow.dx < 0 || this.arrow.dy < 0) {
+        if (this.arrow.dx > 640 || this.arrow.dx < 0 ) {
             return true;
         } else return false;
     }
@@ -143,7 +143,7 @@ export default class CastleSiege {
     
     reset() {
         this.power = window.myPower;
-        this.angle = 45;
+        this.angle = window.myAngle;
         this.dirx = 0.4 * (this.power/10);
         this.diry = -0.3 * (this.angle/5) * (this.power/50);
         this.gravity = 0.0038 * (this.power/100) * (this.angle / 90);

@@ -34,8 +34,9 @@ class Clock {
   };
 
   const addClock = function(newElement, parentElement) {
-    const newPTag = document.createElement("p")
-    newPTag.innerText = newElement
+    const newPTag = document.createElement("button");
+    newPTag.innerText = newElement;
+    newPTag.classList.add("top-button");
     newPTag.classList.add("siege-clock")
     if (parentElement.children.length > 0) {
         parentElement.removeChild(parentElement.children[0]);
