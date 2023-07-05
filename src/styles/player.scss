@@ -1,0 +1,93 @@
+.elapsed-box {
+    position: absolute;
+    bottom: 592px;
+    left: 12.4%;
+    transform: translate(-20%, 83.7%);
+    width : fit-content;
+    height: 30px;
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    box-shadow: inset 0px 0px 10px black, 0 0 12px rgb(45, 200, 45);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 7px;
+};
+
+.elapsed-clock {
+    background-color: darkgreen;
+    border-radius: 7px;
+    height: 30px;
+    margin: 0px;
+    padding: 0px;
+    width: 210px;
+    font-family: 'Dela Gothic One';
+    color: white;
+    transition-duration: 0.7s;
+    box-sizing: border-box;
+    box-shadow: inset 0px 0px 10px black, 0 0 12px rgb(45, 200, 45);
+}
+
+.score-box {
+    position: absolute;
+    bottom: 552px;
+    left: 12.4%;
+    transform: translate(-20%, 83.7%);
+    width : fit-content;
+    height: 30px;
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    box-shadow: inset 0px 0px 10px black, 0 0 12px rgb(45, 200, 45);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 7px;
+};
+
+.score {
+    background-color: darkgreen;
+    border-radius: 7px;
+    height: 30px;
+    margin: 0px;
+    padding: 0px;
+    width: 210px;
+    font-family: 'Dela Gothic One';
+    color: white;
+    transition-duration: 0.7s;
+    box-sizing: border-box;
+    box-shadow: inset 0px 0px 10px black, 0 0 12px rgb(45, 200, 45);
+}
+
+
+.turns {
+    position: absolute;
+    bottom: 512px;
+    left: 12.4%;
+    transform: translate(-20%, 83.7%);
+    width : fit-content;
+    height: 30px;
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    box-shadow: inset 0px 0px 10px black, 0 0 12px rgb(45, 200, 45);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 7px;
+};
+
+.turn-counter {
+    background-color: darkgreen;
+    border-radius: 7px;
+    height: 30px;
+    margin: 0px;
+    padding: 0px;
+    width: 210px;
+    font-family: 'Dela Gothic One';
+    color: white;
+    transition-duration: 0.7s;
+    box-sizing: border-box;
+    box-shadow: inset 0px 0px 10px black, 0 0 12px rgb(45, 200, 45);
+}

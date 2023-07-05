@@ -1,0 +1,14 @@
+.links-container {
+    position: absolute;
+    height: 50px;
+    width: 50px;
+    top: 115px;
+    right: 370px;
+    display: flex;
+    flex-direction: row;
+}
+
+.hide-links {
+    display: none;
+}
+

@@ -23,9 +23,9 @@ export default class CastleSiege {
         this.dirx = 0.4 * (this.power/10);
         this.diry = -0.3 * (this.angle/5) * (this.power/50);
         this.gravity = 0.0038 * (this.power/100) * (this.angle / 90);
-        this.clouddx = 1;
+        this.clouddx = 1.5;
         this.stop = false;
-        this.damage = 10
+        this.damage = 10;
         this.hitGround = this.hitGround.bind(this);
         this.hitOffScreen = this.hitOffScreen.bind(this);
         this.reset = this.reset.bind(this);
@@ -96,7 +96,7 @@ export default class CastleSiege {
             this.stop = false;
             this.arrow.launch(ctx, this.dirx, this.diry);
         } else if (this.isCollision()){
-            this.health -= this.damage;
+            this.health -= Math.floor(this.damage * Math.random() + this.power/10);
             this.playerMove(ctx);
         } else if (this.hitGround() || this.hitOffScreen()) {
             this.playerMove(ctx);
@@ -135,9 +135,39 @@ export default class CastleSiege {
         } else return false;
     }
 
-    isGameOver() {
-        if (this.health <= 0) return true;
-        else return false;
+    gameOver(player) {
+        const modalOverlay = document.querySelector(".game-over-overlay");
+        const modalReset = document.querySelector(".game-reset-button");
+        const modal = document.querySelector(".game-over-wrapper");
+        const finalScore = document.createElement("h1");
+        finalScore.classList.add("game-title")
+        finalScore.innerText = `Your Final Score was ${player.score}!`;
+        modal.appendChild(finalScore)
+        modalOverlay.classList.remove("hide");
+        modalReset.addEventListener("click", () => {
+            modalOverlay.classList.add("hide");
+            player.numTurns = 10;
+            player.score = 0;
+            this.playerMove(this.ctx);
+            window.location.reload();
+        });
+    };
+
+    gameStart(player) {
+        const modalOverlay = document.querySelector(".game-start-overlay");
+        const modalReset = document.querySelector(".game-start-button");
+        const modal = document.querySelector(".game-start-wrapper");
+        const Instructions = document.createElement('p')
+        
+        modal.appendChild(Instructions)
+        modalOverlay.classList.remove("hide");
+        modalReset.addEventListener("click", () => {
+            modalOverlay.classList.add("hide");
+            player.numTurns = 10;
+            player.score = 0;
+            this.playerMove(this.ctx);
+            window.location.reload();
+        });
     }
     
     reset() {

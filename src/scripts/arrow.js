@@ -1,7 +1,7 @@
 export default class Arrow {
     constructor(ctx) {
         this.dx = 65;
-        this.dy = 340;
+        this.dy = 370;
         this.dWidth = 60.67;
         this.dHeight = 10.86;
         this.ctx = ctx;
@@ -10,7 +10,7 @@ export default class Arrow {
     };
 
     draw(ctx) {
-        const ballistaSpear = document.getElementById('ballista-spear10');
+        const ballistaSpear = document.getElementById('ballista-spear0');
         ctx.drawImage(ballistaSpear, this.dx, this.dy, this.dWidth, this.dHeight);
     }
 
@@ -24,7 +24,7 @@ export default class Arrow {
 
     reset(ctx) {
         this.dx = 65;
-        this.dy = 340;
+        this.dy = 370;
         this.draw(ctx);
     }
 };

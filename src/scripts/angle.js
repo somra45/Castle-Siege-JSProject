@@ -1,9 +1,10 @@
 export default class Angle {
-    constructor() {
+    constructor(game) {
         this.angle = 15;
         this.stop = false;
         this.getMousePos = this.getMousePos.bind(this);
         this.drawAngle = this.drawAngle.bind(this);
+        this.game = game;
     }
     
     getMousePos(event) {
@@ -57,5 +58,10 @@ export default class Angle {
             ctx.stroke();
             ctx.closePath();
         };
+        let that = this;
+        this.canvas.addEventListener("mousedown", function(event) {
+            that.stop = !that.stop;
+            that.game.angle = window.myAngle;
+        });
     };
 };

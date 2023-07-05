@@ -21,7 +21,15 @@
         <div id="clock-container"></div>
         <button type="button" class="top-button">Music On/Off</button>
         <button type="button" class="top-button">Sound Effects On/Off</button>
-        <button type="button" class="top-button">Meet the Dev</button>
+        <button type="button" class="top-button links">Meet the Dev</button>
+        <div class="links-container hide-links">
+          <a target="_blank" href="https://github.com/somra45">
+            <img class="logo" src="./src/assets/images/github-logo.png">
+          </a>
+          <a target="_blank" href="https://www.linkedin.com/in/harvinder-somra-39ba536a/">
+            <img class="logo" src="./src/assets/images/linkedin-logo.png">
+          </a>
+        </div>
       </div>
       <canvas id="siege-game" height="480" width="640"></canvas>
       <div class="health-bar-div">
@@ -32,8 +40,34 @@
       <div id="angle-div">
       </div>
     </div>
+    <div class="elapsed-box"id="elapsed-box"></div>
+    <div class="score-box"id="score-box"></div>
+    <div class="turns"id="turns"></div>
     <div class="power-canvas" id="power-canvas">
       <canvas id="power-bar" height="480" width="45"></canvas>
+    </div>
+    <div class="game-over-overlay hide">
+      <div class="game-over-wrapper">
+        <div class="game-reset">
+          <h1 class="game-title"> Game Over!</h1>
+          <button class="game-reset-button">
+            Try Again
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="game-start-overlay hide">
+      <div class="game-start-wrapper">
+        <div class="game-start">
+          <h1 class="game-title"> Welcome to Castle Siege! </h1>
+          <button class="game-start-button">
+            Start Game
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="links-overlay hide">
+      <div class="links"></div>
     </div>
     <div display="none">
       <img id="clouds" class="clouds" src="./src/assets/images/clouds.jpg">

@@ -6,8 +6,12 @@ export default class GameView {
     };
 
     start() {
-        this.lastTime = this.clock.minutes + this.clock.seconds/60
+        this.lastTime = this.clock.minutes + this.clock.seconds/60;
         this.game.reset();
+        this.game.start = true;
+        this.clock.initialSeconds = this.clock.seconds
+        this.clock.initialHours = this.clock.hours
+        this.clock.initialMinutes = this.clock.minutes
         requestAnimationFrame(this.animate.bind(this));
     }
 
@@ -16,7 +20,7 @@ export default class GameView {
         - this.lastTime;
         this.game.frameMove(this.ctx, timeDelta);
         if (!this.game.stop) {
-            requestAnimationFrame(this.animate.bind(this))
+            requestAnimationFrame(this.animate.bind(this));
         }
     };
 };

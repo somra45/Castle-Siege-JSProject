@@ -42,7 +42,7 @@ body {
   font-family: "Dela Gothic One";
   color: white;
   transition-duration: 0.7s;
-  box-shadow: inset 0px 0px 10px black, 0 0 12px rgb(45, 200, 45);
+  box-shadow: inset 0px 0px 10px black, 0 0 16px rgb(45, 200, 45);
 }
 
 .siege-clock {
@@ -53,7 +53,7 @@ body {
   font-family: "Dela Gothic One";
   color: white;
   transition-duration: 0.7s;
-  box-shadow: inset 0px 0px 10px black, 0 0 12px rgb(45, 200, 45);
+  box-shadow: inset 0px 0px 10px black, 0 0 16px rgb(45, 200, 45);
 }
 
 .top-button:hover {
@@ -110,6 +110,11 @@ body {
   display: none;
 }
 
+#siege-game {
+  box-shadow: inset 0px 0px 10px black, 0 0 16px rgb(45, 200, 45);
+  border-radius: 3%;
+}
+
 .power-canvas {
   position: absolute;
   bottom: 482px;
@@ -145,4 +150,217 @@ body {
   transform: translate(12%, -26.7%);
   width: 640px;
   height: 480px;
+}
+
+.angle-indicator {
+  z-index: 100;
+}
+
+.elapsed-box {
+  position: absolute;
+  bottom: 592px;
+  left: 12.4%;
+  transform: translate(-20%, 83.7%);
+  width: fit-content;
+  height: 30px;
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  box-shadow: inset 0px 0px 10px black, 0 0 12px rgb(45, 200, 45);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 7px;
+}
+
+.elapsed-clock {
+  background-color: darkgreen;
+  border-radius: 7px;
+  height: 30px;
+  margin: 0px;
+  padding: 0px;
+  width: 210px;
+  font-family: "Dela Gothic One";
+  color: white;
+  transition-duration: 0.7s;
+  box-sizing: border-box;
+  box-shadow: inset 0px 0px 10px black, 0 0 12px rgb(45, 200, 45);
+}
+
+.score-box {
+  position: absolute;
+  bottom: 552px;
+  left: 12.4%;
+  transform: translate(-20%, 83.7%);
+  width: fit-content;
+  height: 30px;
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  box-shadow: inset 0px 0px 10px black, 0 0 12px rgb(45, 200, 45);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 7px;
+}
+
+.score {
+  background-color: darkgreen;
+  border-radius: 7px;
+  height: 30px;
+  margin: 0px;
+  padding: 0px;
+  width: 210px;
+  font-family: "Dela Gothic One";
+  color: white;
+  transition-duration: 0.7s;
+  box-sizing: border-box;
+  box-shadow: inset 0px 0px 10px black, 0 0 12px rgb(45, 200, 45);
+}
+
+.turns {
+  position: absolute;
+  bottom: 512px;
+  left: 12.4%;
+  transform: translate(-20%, 83.7%);
+  width: fit-content;
+  height: 30px;
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  box-shadow: inset 0px 0px 10px black, 0 0 12px rgb(45, 200, 45);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 7px;
+}
+
+.turn-counter {
+  background-color: darkgreen;
+  border-radius: 7px;
+  height: 30px;
+  margin: 0px;
+  padding: 0px;
+  width: 210px;
+  font-family: "Dela Gothic One";
+  color: white;
+  transition-duration: 0.7s;
+  box-sizing: border-box;
+  box-shadow: inset 0px 0px 10px black, 0 0 12px rgb(45, 200, 45);
+}
+
+.game-over-overlay {
+  background: rgba(255, 255, 255, 0.636);
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+}
+
+.game-over-wrapper {
+  width: 660px;
+  height: 500px;
+  background: linear-gradient(155deg, rgb(29, 142, 53), rgb(26, 25, 25));
+  position: fixed;
+  top: 55.3%;
+  left: 48.5%;
+  transform: translate(-50%, -50%);
+  border-radius: 5%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0px;
+  padding: 40px;
+  box-shadow: inset 0px 0px 10px black, 0 0 106px rgb(45, 200, 45);
+}
+
+.game-reset-button {
+  background-color: darkgreen;
+  position: relative;
+  left: 100px;
+  border-radius: 7px;
+  height: 30px;
+  width: fit-content;
+  font-family: "Dela Gothic One";
+  color: white;
+  transition-duration: 0.7s;
+  box-shadow: inset 0px 0px 10px black, 0 0 22px rgb(45, 200, 45);
+  cursor: pointer;
+}
+
+.game-reset-button:hover {
+  background-color: rgb(33, 162, 80);
+  cursor: pointer;
+}
+
+.hide {
+  display: none;
+}
+
+.links-container {
+  position: absolute;
+  height: 50px;
+  width: 50px;
+  top: 115px;
+  right: 370px;
+  display: flex;
+  flex-direction: row;
+}
+
+.hide-links {
+  display: none;
+}
+
+.game-start-overlay {
+  background: rgba(255, 255, 255, 0.636);
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+}
+
+.game-start-wrapper {
+  width: 660px;
+  height: 500px;
+  background: linear-gradient(rgb(29, 142, 53), rgb(26, 25, 25));
+  position: fixed;
+  top: 55.3%;
+  left: 48.5%;
+  transform: translate(-50%, -50%);
+  border-radius: 5%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0px;
+  padding: 40px;
+  box-shadow: inset 0px 0px 10px black, 0 0 106px rgb(45, 200, 45);
+}
+
+.game-start-button {
+  background-color: darkgreen;
+  position: relative;
+  left: 100px;
+  border-radius: 7px;
+  height: 30px;
+  width: fit-content;
+  font-family: "Dela Gothic One";
+  color: white;
+  transition-duration: 0.7s;
+  box-shadow: inset 0px 0px 10px black, 0 0 22px rgb(45, 200, 45);
+  cursor: pointer;
+}
+
+.game-start-button:hover {
+  background-color: rgb(33, 162, 80);
+  cursor: pointer;
 }
