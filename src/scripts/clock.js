@@ -6,10 +6,10 @@ class Clock {
       this.hours = date.getHours();
       this.minutes = date.getMinutes();
       this.seconds = date.getSeconds();
-      this.timeString = `${this.hours}:${this.minutes}:${this.seconds}`
-      this.initialSeconds = this.seconds
-      this.initialMinutes = this.minutes
-      this.initialHours = this.hours
+      this.timeString = `${this.hours}:${this.minutes}:${this.seconds}`;
+      this.initialSeconds = this.seconds;
+      this.initialMinutes = this.minutes;
+      this.initialHours = this.hours;
       this.printTime();
       setInterval(this._tick.bind(this), 1000);
     };
@@ -32,7 +32,7 @@ class Clock {
           this.minutes = 0;
       };
 
-      this.timeString = `${this.hours}:${this.minutes}:${this.seconds}`
+      this.timeString = `${this.hours}:${this.minutes}:${this.seconds}`;
       this.printTime();
     };
   };

@@ -44,7 +44,7 @@ export default class CastleSiege {
     };
 
     drawClouds(ctx, clouddx = false, truex) {
-        const cloudImage = document.getElementById("clouds")
+        const cloudImage = document.getElementById("clouds");
         let sx = 0;
         let sy = 0;
         let sWidth = 480;
@@ -54,7 +54,7 @@ export default class CastleSiege {
         let dWidth = 100;
         let dHeight = 100;
         if (clouddx) {
-            dx += clouddx % 640
+            dx += clouddx % 640;
         }
         // need to get all of this into an animation function, and it could 
         //be moving clouds
@@ -134,16 +134,16 @@ export default class CastleSiege {
         if (this.arrow.dx > 640 || this.arrow.dx < 0 ) {
             return true;
         } else return false;
-    }
+    };
 
     gameOver(player) {
         const modalOverlay = document.querySelector(".game-over-overlay");
         const modalReset = document.querySelector(".game-reset-button");
         const modal = document.querySelector(".game-over-wrapper");
         const finalScore = document.createElement("h1");
-        finalScore.classList.add("game-title")
+        finalScore.classList.add("game-title");
         finalScore.innerText = `Your Final Score was ${player.score}!`;
-        modal.appendChild(finalScore)
+        modal.appendChild(finalScore);
         modalOverlay.classList.remove("hide");
         modalReset.addEventListener("click", () => {
             modalOverlay.classList.add("hide");
@@ -187,10 +187,10 @@ export default class CastleSiege {
               these tries, the game will be over.</li>
             </ol>
             `;
-        modal.appendChild(instructions)
+        modal.appendChild(instructions);
         modalOverlay.classList.remove("hide");
         modalReset.addEventListener("click", () => {
-            modalOverlay.classList.add("hide");
+            modalOverlay.classList.add("hide")
         });
         instructionsButton.addEventListener("click", () => 
             modalOverlay.classList.toggle("hide")
@@ -203,6 +203,6 @@ export default class CastleSiege {
         this.dirx = 0.4 * (this.power/10);
         this.diry = -0.3 * (this.angle/5) * (this.power/50);
         this.gravity = 0.0038 * (this.power/100) * (this.angle / 90);
-        this.clouddx = 1
-    }
+        this.clouddx = 1;
+    };
 };

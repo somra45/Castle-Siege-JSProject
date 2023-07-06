@@ -1,14 +1,14 @@
 export default class Catapult {
     constructor(ctx) {
-        this.ctx = ctx
-        this.dWidth = 91
-        this.dHeight = 76
-        this.dx = 50
-        this.dy = 360
-        this.shotx = 50
-        this.shoty =  360
-        this.type = 'ballista'
-        this.velocity = 3
+        this.ctx = ctx;
+        this.dWidth = 91;
+        this.dHeight = 76;
+        this.dx = 50;
+        this.dy = 360;
+        this.shotx = 50;
+        this.shoty =  360;
+        this.type = 'ballista';
+        this.velocity = 3;
     }
 
     drawBallista(ctx) {
@@ -25,13 +25,13 @@ export default class Catapult {
         ctx.drawImage(ballistaFrontWheel, this.dx + 50, this.dy + 54, this.dWidth/4, this.dHeight/3.5);
         ctx.drawImage(ballistaBackWheel, this.dx + 21, this.dy + 58, this.dWidth/5.2, this.dHeight/4.5);
         ctx.save();
-        ctx.rotate((337 * Math.PI/180))
-        ctx.drawImage(ballistaBow, this.dx - 163, this.dy + 20, this.dWidth, this.dHeight/2.9)
-        ctx.restore()
+        ctx.rotate((337 * Math.PI/180));
+        ctx.drawImage(ballistaBow, this.dx - 163, this.dy + 20, this.dWidth, this.dHeight/2.9);
+        ctx.restore();
     }
 // add a feature to move the catapult with the arrow keys
     move(velocity) {
-        this.dx += velocity
+        this.dx += velocity;
     };
     
 };
