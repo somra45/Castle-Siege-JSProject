@@ -121,6 +121,7 @@ frame loop.
     };
 
 Features to add: 
+
 1. Visual updates and improvements:
     * Finish animating the arrow at different angles according to where it is
     in the projectile trajectory, aim up at start, and gradually complete an arc
@@ -138,6 +139,9 @@ Features to add:
 3. Levels of Difficulty:
     * Add different castles that have varying hitboxes, are smaller and larger, 
     have varying max health as well as health regeneration.
+4. Audio Effects:
+    * Add audio/visual effects for the shot and collision. Also add some relaxing 
+    background music.
 
 ------------------------------------------------------------------------------
 Wireframe URL : https://wireframe.cc/3K69Cw
