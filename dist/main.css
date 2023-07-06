@@ -72,6 +72,7 @@ body {
   margin: 0px;
   padding: 0px;
   box-sizing: border-box;
+  border-radius: 7px;
 }
 
 .health-bar {
@@ -82,6 +83,7 @@ body {
   padding: 0px;
   box-sizing: border-box;
   box-shadow: inset 0px 0px 10px black, 0 0 12px rgb(45, 200, 45);
+  border-radius: 7px;
 }
 
 .health {
@@ -94,6 +96,7 @@ body {
   display: flex;
   flex-direction: row;
   justify-content: center;
+  border-radius: 7px;
 }
 
 .health-indicator {
@@ -126,6 +129,7 @@ body {
   padding: 0px;
   box-sizing: border-box;
   box-shadow: inset 0px 0px 10px black, 0 0 12px rgb(45, 200, 45);
+  border-radius: 7px;
 }
 
 .power-indicator {
@@ -141,6 +145,7 @@ body {
   color: white;
   font-family: "Dela Gothic One";
   text-shadow: 1px 1px 10px black, 0 0 25px black, 0 0 5px black;
+  border-radius: 7px;
 }
 
 #angle-div {
@@ -317,7 +322,7 @@ body {
 }
 
 .game-start-overlay {
-  background: rgba(255, 255, 255, 0.636);
+  background: rgba(255, 255, 255, 0.542);
   width: 100%;
   height: 100%;
   position: fixed;
@@ -329,9 +334,9 @@ body {
 }
 
 .game-start-wrapper {
-  width: 660px;
-  height: 500px;
-  background: linear-gradient(rgb(29, 142, 53), rgb(26, 25, 25));
+  width: 760px;
+  height: 570px;
+  background: linear-gradient(rgb(195, 202, 196), rgb(10, 117, 49));
   position: fixed;
   top: 55.3%;
   left: 48.5%;
@@ -342,14 +347,14 @@ body {
   align-items: center;
   justify-content: center;
   margin: 0px;
-  padding: 40px;
-  box-shadow: inset 0px 0px 10px black, 0 0 106px rgb(45, 200, 45);
+  padding: 20px;
+  box-shadow: inset 0px 0px 10px rgb(8, 83, 24), 0 0 106px rgb(9, 118, 9);
 }
 
 .game-start-button {
   background-color: darkgreen;
   position: relative;
-  left: 100px;
+  left: 210px;
   border-radius: 7px;
   height: 30px;
   width: fit-content;
@@ -363,4 +368,9 @@ body {
 .game-start-button:hover {
   background-color: rgb(33, 162, 80);
   cursor: pointer;
+}
+
+.game-instructions-container p, h2, li {
+  color: white;
+  font-size: small;
 }

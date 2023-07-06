@@ -17,27 +17,25 @@ Functionality & MVPs:
 In Castle Siege, players will have access to the following core features and functionalities:
 
     - Launch Projectiles: Players can control the trajectory of the 
-    projectile by using the mouse to click and drag, aiming for weak points 
-    in the castle wall for maximum damage.
+    projectile by using the mouse to click and drag an arrow that selects the 
+    angle of the shot.
 
     - Power Adjustment: Players can adjust the power of their shot by 
     utilizing an oscillating power bar controlled by the spacebar. Timing and
     precision are crucial for achieving the desired power level.
 
     - Physics Simulation: The game will incorporate realistic physics, 
-    including factors such as gravity, elevation, and air resistance from 
+    including factors such as gravity, angle, and air resistance from 
     wind, which will affect the trajectory of the projectile. Players must 
     consider these elements when planning their shots.
 
-    - Repairing Castle Wall: The castle wall will have a constant repair mechanism, 
-    meaning players must act quickly and not spend too much time 
-    selecting the perfect shot. The challenge is to inflict as much damage as 
-    possible within a limited time frame.
+    - Score based on time: Players must act quickly and not spend too much time 
+    selecting the perfect shot, as the score will be decremented according to how much time has elapsed since the start of the game. The challenge is to inflict as much damage as possible within the shortest time frame.
 
     - High Score and Progression: The game will track players' scores based 
     on the damage inflicted and the time taken to complete each siege. 
-    Players can strive to achieve high scores and progress to stronger 
-    castles, gradually moving towards world domination.
+    Players can strive to beat personal high scores, or be a better siege master 
+    than their friends(or enemies).
 
 ------------------------------------------------------------------------------
 In addition to the core features, the project will include:
@@ -76,9 +74,6 @@ The Castle Siege game will utilize the following technologies, libraries, and AP
 
     - CSS: Cascading Style Sheets (CSS) will be used to style the game 
     interface, layout, and visual elements.
-
-    - Web Audio API: The Web Audio API will be used to incorporate music and 
-    sound effects into the game. 
 
 ------------------------------------------------------------------------------
 Implementation Timeline

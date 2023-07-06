@@ -158,6 +158,7 @@ export default class CastleSiege {
         const modalOverlay = document.querySelector(".game-start-overlay");
         const modalReset = document.querySelector(".game-start-button");
         const modal = document.querySelector(".game-start-wrapper");
+        const instructionsButton = document.querySelector(".instructions-button");
         const instructions = document.createElement('div');
         instructions.classList.add("game-inststructions-container");
         instructions.innerHTML = 
@@ -191,6 +192,9 @@ export default class CastleSiege {
         modalReset.addEventListener("click", () => {
             modalOverlay.classList.add("hide");
         });
+        instructionsButton.addEventListener("click", () => 
+            modalOverlay.classList.toggle("hide")
+        );
     };
     
     reset() {
