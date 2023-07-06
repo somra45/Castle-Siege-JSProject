@@ -10,6 +10,7 @@ castle walls. The objective is to drop the castle defenses to 0 and claim
 victory. The score is based on time; Players must act quickly, as the score is 
 decremented according to how much time has elapsed since the start of the game.
 The challenge is to inflict as much damage as possible within the shortest time frame.
+![game-snapshot](https://github.com/somra45/Castle-Siege-JSProject/assets/126993987/05b51a29-eed0-4f91-9e42-d17dedd2904e)
 
 ------------------------------------------------------------------------------
 Technologies, Libraries, APIs
