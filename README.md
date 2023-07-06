@@ -2,7 +2,6 @@
 Castle Siege - JavaScript Game Proposal
 ------------------------------------------------------------------------------
 Background:
-------------------------------------------------------------------------------
     
     Castle Siege is an exciting game where players can experience the thrill
     of launching projectiles at castle walls to win sieges and conquer 
