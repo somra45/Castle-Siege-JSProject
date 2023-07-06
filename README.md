@@ -121,21 +121,21 @@ frame loop.
 
 Features to add: 
 1. Visual updates and improvements:
-    i. Finish animating the arrow at different angles according to where it is
+    * Finish animating the arrow at different angles according to where it is
     in the projectile trajectory, aim up at start, and gradually complete an arc
     until contact with ground or castle.
-    ii. Increase the canvas range of motion, potentially use an offscreen canvas 
+    * Increase the canvas range of motion, potentially use an offscreen canvas 
     to simulate an increased distance of shot and allow the user to scroll on the
     map. This will allow castles to be placed at longer and random distances, 
     adding another dimension of difficulty.
-    iii. Make the page and features more reactive to screen size, currently can only
+    * Make the page and features more reactive to screen size, currently can only
     be played on desktop browsers. 
 2. High Score and damage updates:
-    i. add a local storage component to save high scores and display a leaderboard.
-    ii. currently the damage is based on power and a degree of randomness, would
+    * add a local storage component to save high scores and display a leaderboard.
+    * currently the damage is based on power and a degree of randomness, would
     like to implement a more robust damage calculation logic, as well as weak points in the castle walls that have their own hitbox.
 3. Levels of Difficulty:
-    i. Add different castles that have varying hitboxes, are smaller and larger, 
+    * Add different castles that have varying hitboxes, are smaller and larger, 
     have varying max health as well as health regeneration.
 
 ------------------------------------------------------------------------------
