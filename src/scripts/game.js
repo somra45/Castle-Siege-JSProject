@@ -29,6 +29,7 @@ export default class CastleSiege {
         this.hitGround = this.hitGround.bind(this);
         this.hitOffScreen = this.hitOffScreen.bind(this);
         this.reset = this.reset.bind(this);
+        this.gameStart();
     };
 
     drawBackground(ctx) {
@@ -153,22 +154,44 @@ export default class CastleSiege {
         });
     };
 
-    gameStart(player) {
+    gameStart() {
         const modalOverlay = document.querySelector(".game-start-overlay");
         const modalReset = document.querySelector(".game-start-button");
         const modal = document.querySelector(".game-start-wrapper");
-        const Instructions = document.createElement('p')
-        
-        modal.appendChild(Instructions)
+        const instructions = document.createElement('div');
+        instructions.classList.add("game-inststructions-container");
+        instructions.innerHTML = 
+            `
+            <p><strong>Objective:</strong> Your mission is to bring down the castle 
+            walls by accurately adjusting the angle and power of the ballista shots 
+            until the castle's health reaches zero!</p>
+            
+            <h2>Instructions:</h2>
+            
+            <ol>
+              <li><strong>Select Power:</strong> Watch the power bar on the left 
+              side of the screen. To choose the desired power level for your shot, 
+              press the space bar when the power bar reaches your desired level. 
+              Hitting the space bar will stop the power bar and start it again.</li>
+              <li><strong>Select Angle:</strong> Hover your mouse over the screen 
+              and click to freeze the arrow above the ballista at your preferred angle. 
+              If you want to readjust the angle, click again and move the mouse to 
+              adjust it accordingly.</li>
+              <li><strong>Aim for High Score:</strong> Try to achieve the highest 
+              score possible! Direct hits on the castle walls will earn you more 
+              points. Remember, the longer you take, the more points you'll lose, 
+              so be swift and accurate!</li>
+              <li><strong>Break the Walls:</strong> You have 20 attempts to bring 
+              down the castle walls. If you fail to achieve the objective within 
+              these tries, the game will be over.</li>
+            </ol>
+            `;
+        modal.appendChild(instructions)
         modalOverlay.classList.remove("hide");
         modalReset.addEventListener("click", () => {
             modalOverlay.classList.add("hide");
-            player.numTurns = 10;
-            player.score = 0;
-            this.playerMove(this.ctx);
-            window.location.reload();
         });
-    }
+    };
     
     reset() {
         this.power = window.myPower;
