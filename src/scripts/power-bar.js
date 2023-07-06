@@ -35,25 +35,25 @@ export default class PowerBar {
         this.accelerator = 1;
         this.deceleration = 0.95;
         if (!this.stop) {
-                    if (this.upwards) {
-            if ((Math.pow(this.acceleration, this.accelerator) * this.power) <= 100) {
-                this.power = Math.pow(this.acceleration, this.accelerator) * this.power;
-            } else {
-                this.upwards = false;
-                this.downwards = true;
-                this.accelerator = 1;
+            if (this.upwards) {
+                if ((Math.pow(this.acceleration, this.accelerator) * this.power) <= 100) {
+                    this.power *= Math.pow(this.acceleration, this.accelerator);
+                } else {
+                    this.upwards = false;
+                    this.downwards = true;
+                    this.accelerator = 1;
+                }
             }
-        }
-        if (this.downwards) {
-            if ((Math.pow(this.deceleration, this.accelerator) * this.power) >= 15) {
-                this.power = Math.pow(this.deceleration, this.accelerator) * this.power;
-            } else {
-                this.downwards = false;
-                this.upwards = true;
-                this.accelerator = 1;
-            }
-        }
-        }
+            if (this.downwards) {
+                if ((Math.pow(this.deceleration, this.accelerator) * this.power) >= 15) {
+                    this.power *= Math.pow(this.deceleration, this.accelerator);
+                } else {
+                    this.downwards = false;
+                    this.upwards = true;
+                    this.accelerator = 1;
+                }
+            };
+        };
         this.currentPower();
         this.accelerator += 1;
     };

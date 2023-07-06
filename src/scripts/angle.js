@@ -30,8 +30,8 @@ export default class Angle {
     };
 
     drawAngle(ctx) {
-    if (ctx.mouseObj.x >= 70 && ctx.mouseObj.y <= 370) {
-        let deltaX = ctx.mouseObj.x - 70;
+    if (ctx.mouseObj.x >= 65 && ctx.mouseObj.y <= 370) {
+        let deltaX = ctx.mouseObj.x - 65;
         let deltaY = 370 - ctx.mouseObj.y;
         let radians = Math.atan2(deltaY, deltaX);
         let angle = radians * (180 / Math.PI);
@@ -43,12 +43,12 @@ export default class Angle {
             radians = 25 / (180 / Math.PI);
         }
         window.myAngle = angle;
-        let vectorX = 70 + 50 * Math.cos(radians)
+        let vectorX = 65 + 50 * Math.cos(radians)
         let vectorY = 370 - 50 * Math.sin(radians)
             ctx.beginPath();
             ctx.strokeStyle = '#0c662a';
             ctx.lineWidth = 5;
-            ctx.moveTo(70, 370);
+            ctx.moveTo(65, 370);
             ctx.lineTo(vectorX, vectorY);
             ctx.stroke();
             ctx.lineTo(vectorX - 20, vectorY*1.035 - 12);

@@ -13,7 +13,8 @@ export default class Player {
     }
 
     printScore(castle, parentElement, className) {
-        this.score += Math.floor((this.health - castle.health)*1000 - (this.elapsedMinutes + 1 + this.elapsedSeconds/60) * 750)
+        this.score += Math.floor((this.health - castle.health)*1000 - 
+        (this.elapsedMinutes + 1 + this.elapsedSeconds/60) * 750)
         this.health = castle.health
         if (castle.health <= 0) {
             this.score += 20000
