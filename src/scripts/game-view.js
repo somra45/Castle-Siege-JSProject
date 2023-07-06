@@ -9,9 +9,9 @@ export default class GameView {
         this.lastTime = this.clock.minutes + this.clock.seconds/60;
         this.game.reset();
         this.game.start = true;
-        this.clock.initialSeconds = this.clock.seconds
-        this.clock.initialHours = this.clock.hours
-        this.clock.initialMinutes = this.clock.minutes
+        this.clock.initialSeconds = this.clock.seconds;
+        this.clock.initialHours = this.clock.hours;
+        this.clock.initialMinutes = this.clock.minutes;
         requestAnimationFrame(this.animate.bind(this));
     }
 
