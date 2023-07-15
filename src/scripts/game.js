@@ -178,10 +178,10 @@ export default class CastleSiege {
               and click to freeze the arrow above the ballista at your preferred angle. 
               If you want to readjust the angle, click again and move the mouse to 
               adjust it accordingly.</li>
-              <li><strong>Aim for High Score:</strong> Try to achieve the highest 
-              score possible! Direct hits on the castle walls will earn you more 
-              points. Remember, the longer you take, the more points you'll lose, 
-              so be swift and accurate!</li>
+              <li><strong>Aim for High Score:</strong> Press Enter to Shoot.
+              Try to achieve the highest score possible! Direct hits on the castle 
+              walls will earn you more points. Remember, the longer you take, the 
+              more points you'll lose, so be swift and accurate!</li>
               <li><strong>Break the Walls:</strong> You have 20 attempts to bring 
               down the castle walls. If you fail to achieve the objective within 
               these tries, the game will be over.</li>
