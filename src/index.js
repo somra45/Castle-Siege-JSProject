@@ -42,15 +42,15 @@ document.addEventListener("DOMContentLoaded", function() {
     } , 1000);
 
     document.addEventListener("keydown", function pressEnter(event) { 
-        if (event.code === 'Enter') {
-            // document.removeEventListener("keydown", pressEnter);
-            if (player1.numTurns > 1) {
+        if (event.code === 'Enter' ) {
+            if (player1.numTurns > 1 && !window.game) {
                 const shot = new GameView(castle1, castle1.ctx, clock);
                 powerBar.stop = false;
+                angle.stop = false;
                 shot.start();
                 player1.printScore(castle1, 'score-box', 'score');
                 player1.printTurns();
-            } else if (player1.numTurns === 1 || castle1.health <= 0){
+            } else if (player1.numTurns === 1 || castle1.health <= 0 && !window.game) {
                 const shot = new GameView(castle1, castle1.ctx, clock);
                 powerBar.stop = true;
                 angle.stop = true;
@@ -60,7 +60,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 castle1.gameOver(player1);
             }
         }
-    })
+    });
 
     devLinks.addEventListener("click", function () {
         const linksContainer = document.querySelector(".links-container");
