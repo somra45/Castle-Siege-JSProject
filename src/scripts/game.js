@@ -13,6 +13,7 @@ export default class CastleSiege {
         this.player = new Player(this.ctx);
         this.catapult = new Catapult(this.ctx);
         this.drawBackground(this.ctx);
+        this.drawClouds = this.drawClouds.bind(this);
         this.drawClouds(this.ctx);
         this.catapult.drawBallistaPieces(this.ctx);
         currentHealth(this.health);
