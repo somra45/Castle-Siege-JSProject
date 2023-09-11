@@ -14,7 +14,7 @@ export default class CastleSiege {
         this.catapult = new Catapult(this.ctx);
         this.drawBackground = this.drawBackground.bind(this);
         this.drawBackground(this.ctx);
-        // this.drawClouds = this.drawClouds.bind(this);
+        this.drawClouds = this.drawClouds.bind(this);
         this.drawClouds(this.ctx);
         this.catapult.drawBallistaPieces(this.ctx);
         currentHealth(this.health);
@@ -120,8 +120,8 @@ export default class CastleSiege {
         //dx = 545 => 665 
         //dy = 330 => 450
         let wallHitbox = [this.wall.position[0], this.wall.position[1]];
-        if (this.arrow.dx + 60 > wallHitbox[0] + 15 && this.arrow.dy > wallHitbox[1] + 40&& 
-            this.arrow.dx + 60 < wallHitbox[0] + 60 && this.arrow.dy < wallHitbox[1] + 60) {
+        if (this.arrow.dx + 100 > wallHitbox[0] && this.arrow.dy > wallHitbox[1] - 30 && 
+            this.arrow.dx + 100 < wallHitbox[0] + 45 && this.arrow.dy < wallHitbox[1] + 20) {
             return true; 
         } else return false;
 
