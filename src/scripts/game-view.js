@@ -9,6 +9,7 @@ export default class GameView {
         this.lastTime = this.clock.minutes + this.clock.seconds/60;
         this.game.reset();
         this.game.start = true;
+        window.game = true
         this.clock.initialSeconds = this.clock.seconds;
         this.clock.initialHours = this.clock.hours;
         this.clock.initialMinutes = this.clock.minutes;
@@ -21,6 +22,8 @@ export default class GameView {
         this.game.frameMove(this.ctx, timeDelta);
         if (!this.game.stop) {
             requestAnimationFrame(this.animate.bind(this));
+        } else {
+            window.game = false
         }
     };
 };
