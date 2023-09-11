@@ -7,6 +7,9 @@ import Player from "./scripts/player.js";
 
 document.addEventListener("DOMContentLoaded", function() {
     const canvas = document.getElementById("siege-game");
+    const ballistaImage = new Image();
+    ballistaImage.src = './assets/images/ballista.png'
+
     const castle1 = new CastleSiege(canvas);
     const clockDiv = document.getElementById("clock-container");
     const clock = new Clock();
@@ -41,16 +44,15 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     } , 1000);
 
-    document.addEventListener("keydown", function(event) { 
-        if (event.code === 'Enter') {
+    document.addEventListener("keydown", function pressEnter(event) { 
+        if (event.code === 'Enter' && !window.launched) {
             if (player1.numTurns > 1) {
                 const shot = new GameView(castle1, castle1.ctx, clock);
                 powerBar.stop = false;
-                angle.stop = false;
                 shot.start();
                 player1.printScore(castle1, 'score-box', 'score');
                 player1.printTurns();
-            } else if (player1.numTurns === 1 || castle1.health <= 0){
+            } else if (player1.numTurns === 1 || castle1.health <= 0 && !window.launched){
                 const shot = new GameView(castle1, castle1.ctx, clock);
                 powerBar.stop = true;
                 angle.stop = true;
@@ -60,7 +62,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 castle1.gameOver(player1);
             }
         }
-    });
+    })
 
     devLinks.addEventListener("click", function () {
         const linksContainer = document.querySelector(".links-container");

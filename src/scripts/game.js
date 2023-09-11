@@ -14,6 +14,7 @@ export default class CastleSiege {
         this.catapult = new Catapult(this.ctx);
         this.drawBackground = this.drawBackground.bind(this);
         this.drawBackground(this.ctx);
+        this.drawClouds = this.drawClouds.bind(this);
         this.drawClouds(this.ctx);
         this.catapult.drawBallistaPieces(this.ctx);
         currentHealth(this.health);
@@ -44,7 +45,9 @@ export default class CastleSiege {
     };
 
     drawClouds(ctx, clouddx = false, truex) {
-        const cloudImage = document.getElementById("clouds");
+        // const cloudImage = document.getElementById("clouds");
+        const cloudImage = new Image();
+        cloudImage.src = "./src/assets/images/clouds.jpg"
         let sx = 0;
         let sy = 0;
         let sWidth = 480;
@@ -59,30 +62,30 @@ export default class CastleSiege {
         // need to get all of this into an animation function, and it could 
         //be moving clouds
         truex = dx + 30;
-        ctx.drawImage(cloudImage, sx, sy, sWidth, sHeight, truex, dy, 
-            dWidth, dHeight);
-        truex = dx + 170;
-        ctx.drawImage(cloudImage, sx + 500, sy + 450, sWidth + 500, sHeight + 500,
-        dx + 170, dy + 90, dWidth + 200, dHeight + 200);
-        truex = dx + 280;
-        ctx.drawImage(cloudImage, sx, sy + 180, sWidth, sHeight, dx + 280, dy + 230, 
-            dWidth, dHeight -30);
-        truex = dx;
-        ctx.drawImage(cloudImage, sx + 1000, sx + 500, sWidth + 600, sHeight + 500,
-            truex, dy + 110, dWidth + 100, dHeight + 100);
-        truex = dx + 370;
-        ctx.drawImage(cloudImage, 500, 650, sWidth + 680, sHeight,
-            truex, dy + 10, dWidth + 200, dHeight);
-        truex = dx + 70; 
-        ctx.drawImage(cloudImage, sx + 465, sy + 650, sWidth + 590, sHeight,
-            dx + 225, dy + 78, dWidth + 200, dHeight - 20);
-        truex = dx + 150;
-        ctx.drawImage(cloudImage, sx, sy + 150, sWidth, sHeight, truex, 
-            dy, dWidth, dHeight);
-        truex = dx + 57;
-        ctx.drawImage(cloudImage, sx, sy + 60, sWidth, sHeight, truex, 
-            dy + 290, dWidth, dHeight);
-    };  
+            ctx.drawImage(cloudImage, sx, sy, sWidth, sHeight, truex, dy, 
+                dWidth, dHeight);
+            truex = dx + 170;
+            ctx.drawImage(cloudImage, sx + 500, sy + 450, sWidth + 500, sHeight + 500,
+            dx + 170, dy + 90, dWidth + 200, dHeight + 200);
+            truex = dx + 280;
+            ctx.drawImage(cloudImage, sx, sy + 180, sWidth, sHeight, dx + 280, dy + 230, 
+                dWidth, dHeight -30);
+            truex = dx;
+            ctx.drawImage(cloudImage, sx + 1000, sx + 500, sWidth + 600, sHeight + 500,
+                truex, dy + 110, dWidth + 100, dHeight + 100);
+            truex = dx + 370;
+            ctx.drawImage(cloudImage, 500, 650, sWidth + 680, sHeight,
+                truex, dy + 10, dWidth + 200, dHeight);
+            truex = dx + 70; 
+            ctx.drawImage(cloudImage, sx + 465, sy + 650, sWidth + 590, sHeight,
+                dx + 225, dy + 78, dWidth + 200, dHeight - 20);
+            truex = dx + 150;
+            ctx.drawImage(cloudImage, sx, sy + 150, sWidth, sHeight, truex, 
+                dy, dWidth, dHeight);
+            truex = dx + 57;
+            // ctx.drawImage(cloudImage, sx, sy + 60, sWidth, sHeight, truex, 
+            //     dy + 290, dWidth, dHeight);
+    };
 
     frameMove(ctx, timeDelta) {
         ctx.clearRect(0, 0, this.dimensions.width, this.dimensions.height);
@@ -117,8 +120,8 @@ export default class CastleSiege {
         //dx = 545 => 665 
         //dy = 330 => 450
         let wallHitbox = [this.wall.position[0], this.wall.position[1]];
-        if (this.arrow.dx + 60 > wallHitbox[0] + 15 && this.arrow.dy > wallHitbox[1] + 40&& 
-            this.arrow.dx + 60 < wallHitbox[0] + 60 && this.arrow.dy < wallHitbox[1] + 60) {
+        if (this.arrow.dx + 100 > wallHitbox[0] + 10 && this.arrow.dy > wallHitbox[1] - 26 && 
+            this.arrow.dx + 100 < wallHitbox[0] + 45 && this.arrow.dy < wallHitbox[1] + 20) {
             return true; 
         } else return false;
 

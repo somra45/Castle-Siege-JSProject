@@ -8,12 +8,16 @@ export default class Wall {
     }
 
     drawCastle(ctx, health) {
-        let castleImage = document.getElementById('castle-image');
+        // let castleImage = document.getElementById('castle-image');
+        let castleImage = new Image();
+        castleImage.src = "./src/assets/images/castle-image.png"
         if (health < 75 && health >= 33) {
-            castleImage = document.getElementById('castle-image-damaged');
+            // castleImage = document.getElementById('castle-image-damaged');
+            castleImage.src = "./src/assets/images/castle-image-damaged.png"
         } else if (health < 33) {
-            castleImage = document.getElementById('castle-image-destroyed');
+            // castleImage = document.getElementById('castle-image-destroyed');
+            castleImage.src = "./src/assets/images/castle-image-destroyed.png"
         } 
-        ctx.drawImage(castleImage, this.position[0], this.position[1], this.dWidth, this.dHeight);
+            ctx.drawImage(castleImage, this.position[0], this.position[1], this.dWidth, this.dHeight);
     };
 };
