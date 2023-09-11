@@ -120,7 +120,7 @@ export default class CastleSiege {
         //dx = 545 => 665 
         //dy = 330 => 450
         let wallHitbox = [this.wall.position[0], this.wall.position[1]];
-        if (this.arrow.dx + 100 > wallHitbox[0] && this.arrow.dy > wallHitbox[1] - 30 && 
+        if (this.arrow.dx + 100 > wallHitbox[0] + 10 && this.arrow.dy > wallHitbox[1] - 26 && 
             this.arrow.dx + 100 < wallHitbox[0] + 45 && this.arrow.dy < wallHitbox[1] + 20) {
             return true; 
         } else return false;
