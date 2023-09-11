@@ -49,6 +49,7 @@ document.addEventListener("DOMContentLoaded", function() {
             if (player1.numTurns > 1) {
                 const shot = new GameView(castle1, castle1.ctx, clock);
                 powerBar.stop = false;
+                angle.stop = false;
                 shot.start();
                 player1.printScore(castle1, 'score-box', 'score');
                 player1.printTurns();
@@ -62,7 +63,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 castle1.gameOver(player1);
             }
         }
-    })
+    });
 
     devLinks.addEventListener("click", function () {
         const linksContainer = document.querySelector(".links-container");

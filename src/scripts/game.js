@@ -12,9 +12,7 @@ export default class CastleSiege {
         this.wall = new Wall(this.health, this.ctx);
         this.player = new Player(this.ctx);
         this.catapult = new Catapult(this.ctx);
-        this.drawBackground = this.drawBackground.bind(this);
         this.drawBackground(this.ctx);
-        this.drawClouds = this.drawClouds.bind(this);
         this.drawClouds(this.ctx);
         this.catapult.drawBallistaPieces(this.ctx);
         currentHealth(this.health);
@@ -83,8 +81,6 @@ export default class CastleSiege {
             ctx.drawImage(cloudImage, sx, sy + 150, sWidth, sHeight, truex, 
                 dy, dWidth, dHeight);
             truex = dx + 57;
-            // ctx.drawImage(cloudImage, sx, sy + 60, sWidth, sHeight, truex, 
-            //     dy + 290, dWidth, dHeight);
     };
 
     frameMove(ctx, timeDelta) {
