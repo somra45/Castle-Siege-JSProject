@@ -9,15 +9,36 @@ export default class CastleSiege {
         this.ctx = canvas.getContext("2d");
         this.dimensions = { width: canvas.width, height: canvas.height};
         this.health = 100;
-        this.wall = new Wall(this.health, this.ctx);
         this.player = new Player(this.ctx);
-        this.catapult = new Catapult(this.ctx);
-        this.drawBackground(this.ctx);
         this.drawClouds = this.drawClouds.bind(this);
-        this.drawClouds(this.ctx);
-        this.catapult.drawBallistaPieces(this.ctx);
+        this.drawBackground = this.drawBackground.bind(this);
+        const cloudImage = new Image();
+        cloudImage.src = "./src/assets/images/clouds.jpg"
+        const ballistaImage = new Image();
+        ballistaImage.src = "./src/assets/images/ballista.png"
+        const wallImage = new Image();
+        wallImage.src = "./src/assets/images/castle-image.png";
+        const images = [wallImage, ballistaImage, cloudImage];
+        const imageCount = images.length;
+        let imageLoaded = 0;
+        const that = this
+        const allLoaded = () => {
+            that.drawClouds(that.ctx);
+            that.wall = new Wall(that.health, that.ctx);
+            that.catapult = new Catapult(that.ctx);
+            that.drawBackground(that.ctx);
+            that.catapult.drawBallistaPieces(that.ctx);
+            that.arrow = new Arrow(that.ctx);
+        }
+        for (let i = 0; i < imageCount; i++) {
+            images[i].onload = function () {
+                imageLoaded++ 
+                if (imageLoaded == imageCount) {
+                     allLoaded();
+                }
+            }
+        }
         currentHealth(this.health);
-        this.arrow = new Arrow(this.ctx);
         this.power = window.myPower;
         this.angle = window.myAngle;
         this.dirx = 0.4 * (this.power/10);

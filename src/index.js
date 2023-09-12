@@ -7,10 +7,9 @@ import Player from "./scripts/player.js";
 
 document.addEventListener("DOMContentLoaded", function() {
     const canvas = document.getElementById("siege-game");
-    const ballistaImage = new Image();
-    ballistaImage.src = './assets/images/ballista.png'
 
     const castle1 = new CastleSiege(canvas);
+
     const clockDiv = document.getElementById("clock-container");
     const clock = new Clock();
     const player1 = new Player(castle1, 20, clock);
